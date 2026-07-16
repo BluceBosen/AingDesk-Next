@@ -12,3 +12,4 @@ aingdesk_api项目是python开发的后台接口用于业务逻辑实现，front
 <img width="2400" height="1600" alt="image" src="https://github.com/user-attachments/assets/56c3a912-0927-4c2a-81a0-9ad5b356d47a" />
 这是MCP工具界面效果
 <img width="2400" height="1600" alt="image" src="https://github.com/user-attachments/assets/ac98c0fb-d1cb-43e3-ac4f-f8c17da75bb4" />
+当然，这个前后端分离项目用到了AI辅助开发，这个项目是我用来学习python语言和electron桌面的重要入口，有不足还望理解。
