@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "dev",
+      "label": "npm: dev",
+      "detail": "Start Vite dev server (without auto-launching Electron in VS Code)",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "."
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "vite v\\d+\\.\\d+\\.\\d+ building for development",
+          "endsPattern": "ready in"
+        }
+      },
+      "options": {
+        "env": {
+          "VSCODE_DEBUG": "true"
+        }
+      }
+    }
+  ]
+}

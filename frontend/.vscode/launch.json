@@ -1,0 +1,63 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Electron App",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "args": [".", "--remote-debugging-port=9223"],
+      "env": {
+        "NODE_ENV": "development",
+        "VSCODE_DEBUG": "true",
+        "VITE_DEV_SERVER_URL": "http://localhost:5173"
+      },
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/dist-electron/**/*.js"],
+      "cwd": "${workspaceFolder}",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+      },
+      "preLaunchTask": "npm: dev"
+    },
+    {
+      "name": "Debug: Main Process Only",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+      "args": [".", "--remote-debugging-port=9223"],
+      "env": {
+        "NODE_ENV": "development",
+        "VSCODE_DEBUG": "true",
+        "VITE_DEV_SERVER_URL": "http://localhost:5173"
+      },
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/dist-electron/**/*.js"],
+      "cwd": "${workspaceFolder}",
+      "windows": {
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
+      }
+    },
+    {
+      "name": "Debug: Renderer Process",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9223,
+      "webRoot": "${workspaceFolder}",
+      "timeout": 30000,
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "vite:///src/*": "${webRoot}/src/*"
+      },
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug: All Processes",
+      "configurations": ["Debug: Main Process Only", "Debug: Renderer Process"],
+      "preLaunchTask": "npm: dev",
+      "stopAll": true
+    }
+  ]
+}
